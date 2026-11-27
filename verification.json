@@ -1,0 +1,102 @@
+{
+  "subset_checks": 65,
+  "expanded_graph_cross_checks": 26,
+  "exhaustive_core_cases": 18,
+  "core_assignments_scanned": 257310,
+  "local_star_cases": 3168,
+  "sign_words": 254,
+  "exact_exponent_and_scale_checks": 508,
+  "first_tested_successful_scale": {
+    "1": 59,
+    "2": 90,
+    "3": 54,
+    "4": 51
+  },
+  "scale_one_failures": 195,
+  "negative_control": [
+    "+",
+    "-"
+  ],
+  "examples": [
+    {
+      "word": "+",
+      "scale": 2,
+      "vertices": 176,
+      "alpha": 88,
+      "tail_bits": [
+        50,
+        60,
+        73
+      ],
+      "sha256": "cf70c7a7c07330267e44b1cf47f6edbe283f02b9f13026f038b06ec3ba30bf6e"
+    },
+    {
+      "word": "+-+-",
+      "scale": 2,
+      "vertices": 3106,
+      "alpha": 1553,
+      "tail_bits": [
+        962,
+        998,
+        1037,
+        1075,
+        1115,
+        1153
+      ],
+      "sha256": "13674333175a9e061e76ab6658cbd9a886578eadc9a199a1e46a26e3f776d289"
+    },
+    {
+      "word": "---+--",
+      "scale": 2,
+      "vertices": 4524,
+      "alpha": 2262,
+      "tail_bits": [
+        1316,
+        1421,
+        1524,
+        1626,
+        1683,
+        1749,
+        1813,
+        1875
+      ],
+      "sha256": "40d003d96f7dff3ecccf162766602e9a43e2d4917e68d33712d5de14a29236a2"
+    },
+    {
+      "word": "++++++",
+      "scale": 3,
+      "vertices": 25608,
+      "alpha": 12804,
+      "tail_bits": [
+        8234,
+        8386,
+        8539,
+        8701,
+        8869,
+        9043,
+        9223,
+        9409
+      ],
+      "sha256": "b51b5b07041bc081b41ffc1e4dfe8d310acc523091a39f3cc89957885c18258f"
+    },
+    {
+      "word": "++++++++",
+      "scale": 3,
+      "vertices": 67430,
+      "alpha": 33715,
+      "tail_bits": [
+        21872,
+        22120,
+        22369,
+        22627,
+        22891,
+        23161,
+        23437,
+        23719,
+        24007,
+        24301
+      ],
+      "sha256": "0c851dafbd4d6c32668fd04c77744eff3dd34222333a3e8c2357e85057face8b"
+    }
+  ]
+}

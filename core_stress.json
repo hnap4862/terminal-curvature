@@ -1,0 +1,11 @@
+{
+  "all_words_through_length": 12,
+  "short_words": 8190,
+  "short_exact_budgets": 106494,
+  "long_words": 91,
+  "maximum_long_length": 256,
+  "long_exact_budgets": 10361,
+  "total_core_vertices_processed": 1362677,
+  "non_superadditive_at_three_actual_predicted": [85,80],
+  "weak_balanced_at_one_actual_predicted": [30,26]
+}

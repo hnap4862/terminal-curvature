@@ -1,0 +1,112 @@
+Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)
+Compiling TerminalCurvature.lean
+Compiling Word.lean
+Compiling Counting.lean
+Compiling Assembly.lean
+Compiling Family.lean
+Compiling Geometry.lean
+Compiling Bounds.lean
+Compiling Limits.lean
+Compiling RealLimits.lean
+Compiling ExplicitTree.lean
+'ExplicitTree.mixed_witness' does not depend on any axioms
+Compiling Audit.lean
+TerminalCurvature.Geometry.matched_tree_every_word (word : List Bool) :
+  ∃ c p,
+    0 < p ∧
+      Family.SignedCounts (Family.coeff c p) word ∧
+        Geometry.Forest (Adj (Family.arrows c p)) ∧
+          (∀ (u v : Family.Labels c p × Bool), ∃ n ≤ 10, Geometry.Walk (Adj (Family.arrows c p)) u v n) ∧
+            (∀ (u : Family.Labels c p × Bool),
+                Geometry.mate (Geometry.mate u) = u ∧
+                  Geometry.mate u ≠ u ∧ Adj (Family.arrows c p) u (Geometry.mate u)) ∧
+              (∀ (S : Finset (Family.Labels c p × Bool)),
+                  (Independent (Family.arrows c p) fun x => x ∈ S) → S.card ≤ Fintype.card (Family.Labels c p)) ∧
+                ∃ S, (Independent (Family.arrows c p) fun x => x ∈ S) ∧ S.card = Fintype.card (Family.Labels c p)
+'TerminalCurvature.Geometry.matched_tree_every_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.every_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.atlas_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.trim_allocation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Assembly.device_realises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Counting.layerEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Family.count_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Family.physical_every_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Geometry.diameter_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Geometry.acyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Geometry.perfect_matching' depends on axioms: [propext]
+'TerminalCurvature.Geometry.independence_number' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.explicit_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExplicitTree.mixed_witness' does not depend on any axioms
+TerminalCurvature.Quantitative.bounded_witness_and_limits (word : List Bool) :
+  ∃ c,
+    (let p := 128 * (word.length + 1) ^ 2;
+      Fintype.card (Family.Labels c p × Bool) < 2 ^ 15 * (word.length + 1) ^ 7 ∧
+        Family.SignedCounts (Family.coeff c p) word) ∧
+      (∀ (p : ℕ),
+          Geometry.Forest (Adj (Family.arrows c p)) ∧
+            (∀ (u v : Family.Labels c p × Bool), ∃ n ≤ 10, Geometry.Walk (Adj (Family.arrows c p)) u v n) ∧
+              (∀ (u : Family.Labels c p × Bool),
+                  Geometry.mate (Geometry.mate u) = u ∧
+                    Geometry.mate u ≠ u ∧ Adj (Family.arrows c p) u (Geometry.mate u)) ∧
+                (∀ (S : Finset (Family.Labels c p × Bool)),
+                    (Independent (Family.arrows c p) fun x => x ∈ S) → S.card ≤ Fintype.card (Family.Labels c p)) ∧
+                  ∃ S, (Independent (Family.arrows c p) fun x => x ∈ S) ∧ S.card = Fintype.card (Family.Labels c p)) ∧
+        ∀ (K : ℕ),
+          ∃ P,
+            ∀ p ≥ P,
+              ∀ (i : ℕ) (b : Bool),
+                word[i]? = some b →
+                  let A := Family.coeff c p;
+                  0 < A (i + 1) ∧
+                    if b = true then K * (A (i + 1) * A (i + 1)) < A i * A (i + 2)
+                    else K * (A i * A (i + 2)) < A (i + 1) * A (i + 1)
+'TerminalCurvature.Quantitative.bounded_witness_and_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+TerminalCurvature.Quantitative.bounded_matched_tree_every_word (word : List Bool) :
+  ∃ c,
+    let p := 128 * (word.length + 1) ^ 2;
+    Fintype.card (Family.Labels c p × Bool) < 2 ^ 15 * (word.length + 1) ^ 7 ∧
+      Family.SignedCounts (Family.coeff c p) word ∧
+        Geometry.Forest (Adj (Family.arrows c p)) ∧
+          (∀ (u v : Family.Labels c p × Bool), ∃ n ≤ 10, Geometry.Walk (Adj (Family.arrows c p)) u v n) ∧
+            (∀ (u : Family.Labels c p × Bool),
+                Geometry.mate (Geometry.mate u) = u ∧
+                  Geometry.mate u ≠ u ∧ Adj (Family.arrows c p) u (Geometry.mate u)) ∧
+              (∀ (S : Finset (Family.Labels c p × Bool)),
+                  (Independent (Family.arrows c p) fun x => x ∈ S) → S.card ≤ Fintype.card (Family.Labels c p)) ∧
+                ∃ S, (Independent (Family.arrows c p) fun x => x ∈ S) ∧ S.card = Fintype.card (Family.Labels c p)
+'TerminalCurvature.Quantitative.bounded_matched_tree_every_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TerminalCurvature.Quantitative.all_positive_order (L : ℕ) :
+  ∃ c,
+    let H := L + 1;
+    let p := 128 * H ^ 2;
+    Fintype.card (Family.Labels c p × Bool) < 2 ^ 14 * H ^ 6 ∧
+      Family.SignedCounts (Family.coeff c p) (List.replicate L true) ∧
+        Geometry.Forest (Adj (Family.arrows c p)) ∧
+          (∀ (u v : Family.Labels c p × Bool), ∃ n ≤ 10, Geometry.Walk (Adj (Family.arrows c p)) u v n) ∧
+            ∀ (u : Family.Labels c p × Bool),
+              Geometry.mate (Geometry.mate u) = u ∧ Geometry.mate u ≠ u ∧ Adj (Family.arrows c p) u (Geometry.mate u)
+'TerminalCurvature.Quantitative.all_positive_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Quantitative.ratio_thresholds' depends on axioms: [propext, Classical.choice, Quot.sound]
+TerminalCurvature.Quantitative.bounded_family_real_limits (word : List Bool) :
+  ∃ c,
+    (let p := 128 * (word.length + 1) ^ 2;
+      Fintype.card (Family.Labels c p × Bool) < 2 ^ 15 * (word.length + 1) ^ 7 ∧
+        Family.SignedCounts (Family.coeff c p) word) ∧
+      (∀ (p : ℕ),
+          Geometry.Forest (Adj (Family.arrows c p)) ∧
+            (∀ (u v : Family.Labels c p × Bool), ∃ n ≤ 10, Geometry.Walk (Adj (Family.arrows c p)) u v n) ∧
+              (∀ (u : Family.Labels c p × Bool),
+                  Geometry.mate (Geometry.mate u) = u ∧
+                    Geometry.mate u ≠ u ∧ Adj (Family.arrows c p) u (Geometry.mate u)) ∧
+                (∀ (S : Finset (Family.Labels c p × Bool)),
+                    (Independent (Family.arrows c p) fun x => x ∈ S) → S.card ≤ Fintype.card (Family.Labels c p)) ∧
+                  ∃ S, (Independent (Family.arrows c p) fun x => x ∈ S) ∧ S.card = Fintype.card (Family.Labels c p)) ∧
+        ∀ (i : ℕ) (b : Bool),
+          word[i]? = some b →
+            if b = true then Filter.Tendsto (Quantitative.ratio c i) Filter.atTop Filter.atTop
+            else Filter.Tendsto (Quantitative.ratio c i) Filter.atTop (nhds 0)
+'TerminalCurvature.Quantitative.bounded_family_real_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TerminalCurvature.Quantitative.real_limits_from_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS: eleven modules, fresh local build

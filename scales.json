@@ -1,0 +1,65 @@
+[
+  {
+    "word": "+",
+    "scale": 512,
+    "vertices": 41996,
+    "maximum_coefficient_bits": 18433,
+    "expanded_graph_cross_check": true
+  },
+  {
+    "word": "-",
+    "scale": 512,
+    "vertices": 10248,
+    "maximum_coefficient_bits": 5121,
+    "expanded_graph_cross_check": true
+  },
+  {
+    "word": "++",
+    "scale": 1152,
+    "vertices": 405524,
+    "maximum_coefficient_bits": 165889,
+    "expanded_graph_cross_check": false
+  },
+  {
+    "word": "+-",
+    "scale": 1152,
+    "vertices": 5250836,
+    "maximum_coefficient_bits": 2119681,
+    "expanded_graph_cross_check": false
+  },
+  {
+    "word": "-+",
+    "scale": 1152,
+    "vertices": 135950,
+    "maximum_coefficient_bits": 62209,
+    "expanded_graph_cross_check": false
+  },
+  {
+    "word": "--",
+    "scale": 1152,
+    "vertices": 41482,
+    "maximum_coefficient_bits": 20737,
+    "expanded_graph_cross_check": true
+  },
+  {
+    "word": "---",
+    "scale": 2048,
+    "vertices": 114700,
+    "maximum_coefficient_bits": 57345,
+    "expanded_graph_cross_check": false
+  },
+  {
+    "word": "++++",
+    "scale": 3200,
+    "vertices": 7552042,
+    "maximum_coefficient_bits": 2880001,
+    "expanded_graph_cross_check": false
+  },
+  {
+    "word": "----------------",
+    "scale": 36992,
+    "vertices": 25154598,
+    "maximum_coefficient_bits": 12577281,
+    "expanded_graph_cross_check": false
+  }
+]
