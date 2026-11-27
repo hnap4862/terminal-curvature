@@ -2,17 +2,24 @@
 
 The paper constructs a finite tree for each finite word of strict log-concavity and strict log-convexity signs, starting next to the independence number. The tree has a perfect matching and diameter at most 10. The manuscript uses conventional graph-theoretic notation. Lean uses the explicit split graph and counts its independent vertex subsets.
 
+**Research draft (v0.1.0).** hnap initiated and coordinated the project. OpenAI GPT-6.2 Astra was used for mathematical exploration, proof construction and initial Lean formalization. GPT-6.2 Sol was used for subsequent formalization, computational reproduction, literature review and manuscript preparation. Independent human mathematical review and priority verification remain pending.
+
 | File | Contents |
 |---|---|
-| `paper.pdf` | English manuscript |
+| [English manuscript](terminal-curvature-paper.pdf) | PDF with the byline and AI-use disclosure |
+| [Chinese exposition](terminal-curvature-zh.pdf) | PDF, with the Markdown source in `proof.zh.md` |
 | `paper.tex`, `references.bib`, `paper.bbl` | Manuscript and bibliography sources |
 | `Audit.lean` | Entry point for theorem signatures and axiom dependencies |
-| `FORMAL_VERIFICATION.md` | Statement correspondence and proof coverage |
-| `ORIGINALITY_REVIEW.md` | Search record, source comparisons, and coverage limits |
+| [Formal verification](FORMAL_VERIFICATION.md) ([PDF](FORMAL_VERIFICATION.pdf)) | Statement correspondence and proof coverage |
+| [Originality review](ORIGINALITY_REVIEW.md) ([PDF](ORIGINALITY_REVIEW.pdf)) | Search record, source comparisons, and coverage limits |
 | `proof.zh.md` | Chinese exposition with complete proof |
 | `RESEARCH_HANDOFF.md` | Historical handoff from the previous phase |
 | `records/replay/` | Fresh compilation and exact experiment outputs |
 | `SHA256SUMS` | Integrity manifest for the rest of the release |
+
+## Check the artifact hashes
+
+From the repository root, run `sha256sum -c SHA256SUMS`. Citation metadata is available in [CITATION.cff](CITATION.cff).
 
 ## Build the manuscript
 

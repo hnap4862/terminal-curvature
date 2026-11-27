@@ -1,0 +1,9 @@
+.lake/
+__pycache__/
+*.olean
+*.ilean
+*.aux
+*.blg
+*.log
+*.out
+/stress_core

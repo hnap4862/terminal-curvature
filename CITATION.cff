@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the manuscript or this repository."
+type: software
+title: "Prescribing terminal log-concavity patterns in trees with perfect matchings"
+authors:
+  - name: hnap
+repository-code: "https://github.com/hnap4862/terminal-curvature"
+version: "0.1.0"
+preferred-citation:
+  type: manuscript
+  title: "Prescribing terminal log-concavity patterns in trees with perfect matchings"
+  authors:
+    - name: hnap
+  year: 2026
+  url: "https://github.com/hnap4862/terminal-curvature"
