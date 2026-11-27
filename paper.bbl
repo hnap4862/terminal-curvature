@@ -1,0 +1,60 @@
+\begin{thebibliography}{1}
+
+\bibitem{alavi}
+Yousef Alavi, Paresh~J. Malde, Allen~J. Schwenk, and Paul Erd{\H{o}}s.
+\newblock The vertex independence sequence of a graph is not constrained.
+\newblock {\em Congressus Numerantium}, 58:15--23, 1987.
+\newblock \url{https://www.renyi.hu/~p_erdos/1987-33.pdf}.
+
+\bibitem{br}
+C{\'e}sar Bautista-Ramos.
+\newblock Multiple breaks of log-concavity in the independence polynomials of
+  trees, 2025.
+\newblock \href{https://arxiv.org/abs/2511.00334}{arXiv:2511.00334}.
+
+\bibitem{bgg}
+C{\'e}sar Bautista-Ramos, Carlos Guill{\'e}n-Galv{\'a}n, and Paulino
+  G{\'o}mez-Salgado.
+\newblock Linear recurrences for non-log-concave independence polynomials of
+  trees.
+\newblock {\em Graphs and Combinatorics}, 42:Article 59, 2026.
+\newblock
+  \href{https://doi.org/10.1007/s00373-026-03054-4}{doi:10.1007/s00373-026-03054-4}.
+
+\bibitem{ep}
+{Evidence Press}.
+\newblock Log-concavity transitions in sums of polynomial powers, 2026.
+\newblock
+  \href{https://www.evidencepress.org/releases/tree-log-concavity-diameter-four/}{Public
+  candidate release}, v0.1.0, November 15.
+
+\bibitem{fan}
+Heshun Fan.
+\newblock Prescribed and simultaneous failures of log-concavity in trees with
+  perfect matchings, 2026.
+\newblock \href{https://arxiv.org/abs/2610.18340}{arXiv:2610.18340}.
+
+\bibitem{galvin}
+David Galvin.
+\newblock Trees with non log-concave independent set sequences, 2025.
+\newblock \href{https://arxiv.org/abs/2502.10654}{arXiv:2502.10654}.
+
+\bibitem{kadrawi}
+O.~Kadrawi and Vadim~E. Levit.
+\newblock The independence polynomial of trees is not always log-concave
+  starting from order 26, 2023.
+\newblock \href{https://arxiv.org/abs/2305.01784}{arXiv:2305.01784}.
+
+\bibitem{barrier}
+Vadim~E. Levit.
+\newblock Barrier log-concavity of large forests, 2026.
+\newblock \href{https://arxiv.org/abs/2610.22098}{arXiv:2610.22098}.
+
+\bibitem{yu}
+Xiyao Yu.
+\newblock Unbounded runs of non-log-concavity in independence polynomials of
+  trees, 2026.
+\newblock Manuscript and reproducibility archive, v1.1.0,
+  \href{https://doi.org/10.5281/zenodo.22263331}{doi:10.5281/zenodo.22263331}.
+
+\end{thebibliography}

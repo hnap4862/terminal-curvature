@@ -1,0 +1,188 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{iftex}
+\ifPDFTeX\usepackage[T1]{fontenc}\else\usepackage{fontspec}\setmainfont{Latin Modern Roman}\fi
+\usepackage{amsmath,amsthm,amssymb,booktabs,graphicx,tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{example}[theorem]{Example}
+\newcommand{\sig}{\operatorname{sgn}}
+\newcommand{\Dtwo}{\Delta^2}
+\newcommand{\ind}{\mathbf 1}
+\title{Prescribing terminal log-concavity patterns in\texorpdfstring{\\}{ }trees with perfect matchings}
+\author{hnap}
+\hypersetup{pdfauthor={hnap},pdftitle={Prescribing terminal log-concavity patterns in trees with perfect matchings}}
+\date{November 27, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Write $A_r$ for the number of independent sets of size $\alpha-r$ in a tree of independence number~$\alpha$. For every word $\varepsilon\in\{-1,+1\}^L$ we construct a tree with a perfect matching and diameter at most ten such that $\sig(A_{r-1}A_{r+1}-A_r^2)=\varepsilon_r$ for $1\le r\le L$. The tree has fewer than $2^{15}(L+1)^7$ vertices. Along a family realizing a fixed word, each ratio $A_{r-1}A_{r+1}/A_r^2$ tends to infinity or zero according to the corresponding letter. The construction uses the matching-pair encoding of Fan. Its main ingredient is a weighted core tree whose optimal number of free leaves realizes any nondecreasing, superadditive integer profile on a finite interval, up to an affine correction. This permits both signs to be prescribed at every position, including at the penultimate coefficient.
+\end{abstract}
+
+\section{Introduction}
+For a finite simple graph $G$, let $a_k(G)$ denote its number of independent sets of size $k$ and let $\alpha(G)$ be its independence number. The question of Alavi, Malde, Schwenk and Erd\H{o}s about unimodality of the independent set sequence of a tree motivated the study of the stronger inequalities $a_k^2\ge a_{k-1}a_{k+1}$~\cite{alavi,galvin}. Counterexamples to log-concavity are known even for trees~\cite{kadrawi}. Galvin located failures increasingly far from the independence number~\cite{galvin}. Bautista-Ramos constructed arbitrarily many failures in one tree~\cite{br}. Bautista-Ramos, Guill\'en-Galv\'an and G\'omez-Salgado obtained examples with several consecutive failures~\cite{bgg}. Yu subsequently gave trees with unbounded runs of failures~\cite{yu}, and a recent public manuscript reports unbounded runs already at diameter four~\cite{ep}. For trees with perfect matchings, Fan obtained a failure at any prescribed distance below $\alpha$, and simultaneous failures at $\alpha-1,\alpha-3,\ldots,\alpha-(2t-1)$~\cite{fan}. These results motivate prescribing the whole pattern on a terminal interval, including the strictly log-concave triples between prescribed failures.
+
+We read the coefficients in decreasing order of set size, writing $A_r(T)=a_{\alpha(T)-r}(T)$. We use $+$ for a strictly log-convex triple and $-$ for a strictly log-concave triple. Thus the first letter refers to the triple centered at $a_{\alpha-1}$.
+The arbitrary coefficient orderings in~\cite{alavi} concern general graphs and compare coefficients directly. Levit's barrier log-concavity uses a modified inequality for forests~\cite{barrier}. Both distinctions matter here because our construction uses ordinary log-concavity at fixed offsets in a restricted class of trees.
+
+\begin{theorem}\label{thm:main}
+Let $L\ge1$ and $\varepsilon\in\{-1,+1\}^{L}$. There is a finite tree $T$ with a perfect matching, diameter at most $10$, and fewer than $2^{15}(L+1)^7$ vertices, for which
+\begin{equation}\label{eq:sign}
+ \sig\big(A_{r-1}(T)A_{r+1}(T)-A_r(T)^2\big)=\varepsilon_r\qquad(1\le r\le L).
+\end{equation}
+Furthermore, for the same word there is a family $T_p$ of perfectly matched trees of diameter at most $10$ for which $A_{r-1}(T_p)A_{r+1}(T_p)/A_r(T_p)^2$ tends to $+\infty$ if $\varepsilon_r=+1$, and to $0$ if $\varepsilon_r=-1$.
+\end{theorem}
+
+\begin{corollary}\label{cor:run}
+For every $L\ge1$ a tree with a perfect matching can fail log-concavity at all of $\alpha-1,\alpha-2,\ldots,\alpha-L$. Such a tree can be chosen of diameter at most $10$ and order $O((L+1)^6)$.
+\end{corollary}
+
+We allow the degrees to grow. Equation~\eqref{eq:sign} prescribes the changes in the ratios of successive counts. It puts no requirement on the signs of $a_{k+1}-a_k$ and leaves the unimodality question open. The order bound above concerns terminal words with perfect matchings. Yu's stronger run-length bound in terms of order concerns runs without these joint requirements~\cite{yu}.
+
+\section{Paired trees and a counting bound}
+We recall Fan's representation~\cite[Sections 2 and 6]{fan}. Let $K$ be an oriented tree on $d$ core labels. At each $v\in K$ fix nonnegative integer weights $(\lambda_v,\mu_v)$. For an integer $p\ge1$ attach $p\lambda_v$ leaf labels by arrows directed out of $v$ and $p\mu_v$ leaf labels by arrows directed into $v$. All leaf labels are distinct. Write $W=\sum_v(\lambda_v+\mu_v)$ and $m=d+pW$. Replace each label $x$ by a pair of vertices $x^+,x^-$ joined by an edge, and each arrow $x\to y$ by the edge $x^+y^-$. The resulting undirected graph $T_p$ is connected with $2m$ vertices and $2m-1$ edges. The pair edges give a perfect matching. The set of all positive endpoints is independent, and an independent set meets each pair at most once, so $\alpha(T_p)=m$.
+
+An independent set assigns to each label its state $+$, $-$, or $0$, according to the endpoint chosen, with $0$ denoting an empty pair. An arrow forbids precisely $(+,-)$ at its source and target. The deficit $r$ is the number of empty pairs. For a legal core state $\sigma$ set
+\[
+ e(\sigma)=\sum_{\sigma(v)=+}\mu_v+\sum_{\sigma(v)=-}\lambda_v+
+                   \sum_{\sigma(v)=0}(\lambda_v+\mu_v),\qquad
+ M_r=\max_{\#\sigma^{-1}(0)\le r}e(\sigma),
+\]
+where the maximum is over legal states. There are $p e(\sigma)$ leaf labels at which both nonempty choices are legal. Call these leaf labels free.
+
+\begin{lemma}[Exact-budget form of the free-leaf bound]\label{lem:envelope}
+Suppose some maximizing state for $M_r$ has exactly $r$ empty core labels. Then
+\begin{equation}\label{eq:envelope}
+  2^{pM_r}\le A_r(T_p)\le \binom{m}{r}2^d\,2^{pM_r}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For the lower bound use the specified state, leaving no additional labels empty. Each free leaf chooses its own sign. For the upper bound choose the set of $r$ empty labels, then the signs of the nonempty core labels. There are at most $2^d$ such sign choices for each set of holes. An admissible choice leaves at most $pM_r$ nonempty leaves free, which proves the upper bound.\end{proof}
+
+The exact-budget hypothesis will be established simultaneously for all relevant $r$. It avoids a loss in the lower bound incurred when an optimizing state has unused budget. All the subsequent design takes place in the finite core and is independent of~$p$.
+
+\section{A realization lemma for the core exponent}
+Fix $h\ge1$ and an integer function $f$ on $\{0,\ldots,h\}$ with $f(0)=0$. Assume that $f$ is nonnegative, nondecreasing, and superadditive on its domain, so $f(i)+f(j)\le f(i+j)$ for $i+j\le h$. Let $B=f(h)$. Take a common source $y$ of weight $(0,0)$. For each $1\le s\le h$ give it a neighbor $z_s$ by $y\to z_s$. Add $s$ branch labels $u_{s,i}$ with arrows $u_{s,i}\to z_s$. Give $z_s$ weights $(f(s),0)$ and every $u_{s,i}$ weights $(B,2B)$. The source can always be set to $-$, at no score loss and without increasing the number of holes. With that choice there are no constraints between different stars.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[x=0.81cm,y=0.70cm, every node/.style={font=\small}, lab/.style={circle,inner sep=1.5pt,fill=white},link/.style={line width=.6pt},pair/.style={line width=1.55pt}]
+\node[lab] (y) at (0,0) {$y$}; \node[lab] (z) at (1.6,0) {$z_2$};
+\node[lab] (a) at (3,0.95) {$u_1$};\node[lab] (b) at (3,-.95) {$u_2$};
+\draw[-{Stealth[length=1.6mm]},link] (y)--(z);\draw[-{Stealth[length=1.6mm]},link] (a)--(z);\draw[-{Stealth[length=1.6mm]},link] (b)--(z);
+\begin{scope}[xshift=4.5cm]
+\node[lab] (ym) at (0,0) {$y^-$};\node[lab] (yp) at (1.1,0) {$y^+$};
+\node[lab] (zm) at (2.65,0) {$z_2^-$};\node[lab] (zp) at (4,0) {$z_2^+$};
+\node[lab] (ap) at (3.7,.95) {$u_1^+$};\node[lab] (am) at (5,.95) {$u_1^-$};
+\node[lab] (bp) at (3.7,-.95) {$u_2^+$};\node[lab] (bm) at (5,-.95) {$u_2^-$};
+\draw[pair](ym)--(yp);\draw[pair](zm)--(zp);\draw[pair](ap)--(am);\draw[pair](bp)--(bm);
+\draw[link](yp)--(zm);\draw[link](ap)--(zm);\draw[link](bp)--(zm);
+\end{scope}
+\end{tikzpicture}
+\caption{The core edges of the size-two star, before and after splitting its labels. Here $u_i=u_{2,i}$. Heavy edges belong to the matching. The weighted leaf attachments are omitted.}\label{fig:star}
+\end{figure}
+
+\begin{lemma}\label{lem:star}
+Relative to the baseline $2Bs$, the maximum score on the star at $z_s$ using at most $q$ holes is
+\begin{equation}\label{eq:gain}
+ g_s(q)=B\min(q,s)+f(s)\ind_{\{q\ge s\}}\qquad(q\ge0).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $b=f(s)$. Given $k$ empty branch labels, maximizing over the signs of the remaining branches gives the following three possibilities.
+\begin{center}\begin{tabular}{ccc}\toprule
+State of $z_s$ & Holes used & Maximum score \\ \midrule
+$+$ & $k$ & $2Bs+Bk$ \\
+$0$ & $k+1$ & $2Bs+Bk+b$ \\
+$-$ & $k$ & $Bs+2Bk+b$ \\ \bottomrule
+\end{tabular}\end{center}
+If $q<s$, the second row gives at most $2Bs+Bq$ since $b\le B$. In the third row the difference from $2Bs+Bk$ is $b-B(s-k)\le0$. The first row attains $2Bs+Bq$. If $q\ge s$, empty every branch and take $z_s$ negative. All the attached leaves are free, so the score is maximal.\end{proof}
+
+\begin{proposition}\label{prop:profile}
+In this core, writing $E_0=2B\sum_{s=1}^h s$, one has
+\begin{equation}\label{eq:profile}
+ M_r=E_0+Br+f(r)\qquad(0\le r\le h).
+\end{equation}
+Every displayed maximum is attained with exactly $r$ holes.
+\end{proposition}
+\begin{proof}
+For any allocation $(q_s)$ with $\sum_s q_s\le r$, the linear terms of \eqref{eq:gain} sum to at most $Br$. Put $J=\{s:q_s\ge s\}$. Since $\sum_{s\in J}s\le r$, repeated superadditivity followed by monotonicity gives $\sum_{s\in J}f(s)\le f(r)$. This also holds for $J=\varnothing$. For $r>0$ spend the entire budget on the star of size $r$, taking its hub negative and all its branches empty. Every other hub and branch can take the positive sign. For $r=0$ use those baseline states throughout.\end{proof}
+
+\section{Signed second differences}
+For a function $F$ on the integers write $\Dtwo F(r)=F(r-1)+F(r+1)-2F(r)$ whenever this is defined.
+
+\begin{lemma}\label{lem:bonus}
+Let $h\ge2$. For any $\eta\in\{-1,+1\}^{h-1}$ with $\eta_1=+1$, there is an integer function $f$ as in Proposition~\ref{prop:profile} with $\sig(\Dtwo f(r))=\eta_r$ for $1\le r<h$ and $f(h)\le12h^3$.
+\end{lemma}
+\begin{proof}
+Set $d_0=h$ and $d_i=d_{i-1}+\eta_i$ for $1\le i<h$. Let $v_0=0$ and $v_j=\sum_{i=0}^{j-1}d_i$. The slopes are positive, $v_h\le2h^2$, and $\Dtwo v(i)=\eta_i$. Put
+\begin{equation}\label{eq:bonus}
+ D=2v_h+1,\qquad f(0)=0,\qquad f(j)=D(2j-1)+v_j\quad(1\le j\le h).
+\end{equation}
+The function is increasing. For $a,b\ge1$ and $a+b\le h$ the surplus of $f(a+b)$ over $f(a)+f(b)$ equals $D+v_{a+b}-v_a-v_b\ge1$. The relation with a zero summand is equality. At $r=1$ the second difference is $D+1$ and at $2\le r<h$ it is exactly $\eta_r$. Finally $D\le5h^2$ yields the claimed bound.\end{proof}
+
+We next handle an arbitrary initial run of minus signs. Let $t$ be its length, $H=L+1$, and $h=H-t$. For the remaining word use Lemma~\ref{lem:bonus} if it has positive length. If it is empty, put $h=1$ and $f(j)=j^2$ on $\{0,1\}$. A word consisting of plus signs can also use $f(j)=j^2$ at every $j$. Add $t$ further labels $c_i$ to the core by arrows $y\to c_i$, and give $c_i$ weights $(w_i,w_i)$ where
+\begin{equation}\label{eq:weights}
+ w_i=2B+t-i+1\qquad(1\le i\le t).
+\end{equation}
+We call these labels balanced since either nonempty state gives the same score. Emptying $c_i$ gives an additional $w_i$.
+
+\begin{proposition}\label{prop:prefix}
+Write $C_0=E_0+\sum_i w_i$ and $k=(r-t)_+=\max(0,r-t)$. For the enlarged core,
+\begin{equation}\label{eq:prefix}
+ M_r=C_0+\sum_{i=1}^{\min(t,r)}w_i+Bk+f(k)\qquad(0\le r\le H).
+\end{equation}
+The maxima are attained with exactly $r$ empty core labels, and $\sig(\Dtwo M(r))=\varepsilon_r$ for every $1\le r\le L$.
+\end{proposition}
+\begin{proof}
+By \eqref{eq:gain}, reducing any positive star budget by one costs at most $B+f(s)\le2B$. This bound holds also when the budget is at or beyond saturation. Each $w_i$ is strictly larger. If a balanced label remains nonempty while a star has positive budget, reallocate one unit to that label and reoptimize the star. This increases the objective. Any unused budget can instead empty a remaining balanced label, and among the balanced labels the largest weights give the maximum. The first $\min(t,r)$ budget units therefore go to the balanced labels, leaving $k\le h$ for the stars. Proposition~\ref{prop:profile} supplies the exact-budget witness for that remainder. Formula~\eqref{eq:prefix} follows.
+
+The first $t$ marginal increments are $w_1>\cdots>w_t$. If $t>0$, the next one is $B+f(1)\le2B<w_t$. Thus the second differences at $1,\ldots,t$ are negative, including the junction at $t$. At $r>t$ the second difference is $\Dtwo f(r-t)$. This covers $t=0$, $t=L$, and the case of a one-letter remaining word.\end{proof}
+
+\section{Transfer to the coefficients}
+\begin{proof}[Proof of Theorem~\ref{thm:main} and Corollary~\ref{cor:run}]
+Set $C_p=2^d m^H$. By Lemma~\ref{lem:envelope} and Proposition~\ref{prop:prefix}, for $0\le r\le H$,
+\begin{equation}\label{eq:squeeze}
+     2^{pM_r}\le A_r(T_p)\le C_p 2^{pM_r}.
+\end{equation}
+Since $m=d+pW$, $\log C_p=O(\log p)$ for a fixed word. In particular,
+\[
+ \lim_{p\to\infty}p^{-1}\log_2\frac{A_{r-1}(T_p)A_{r+1}(T_p)}{A_r(T_p)^2}=\Dtwo M(r).
+\]
+This proves the claimed simultaneous limiting behavior.
+
+For an explicit finite witness it is enough that $C_p^2<2^p$. The exponents are integers. If $2M_r<M_{r-1}+M_{r+1}$, then
+\[
+ A_r^2\le C_p^2 2^{2pM_r}<2^{p(2M_r+1)}\le A_{r-1}A_{r+1}.
+\]
+Interchanging the products proves strict log-concavity when $\Dtwo M(r)<0$.
+
+Take $p=128H^2$ and $S=h(h+1)/2$. We have $d=1+h+S+t\le3H^2$ and
+\[
+ W=3BS+\sum_{s=1}^h f(s)+2\sum_{i=1}^t w_i\le100H^5,
+\]
+since $S\le H^2$, $B\le12H^3$ and $w_i\le25H^3$. Consequently $m<2^{14}H^7$. Using $\log_2 H\le H$ gives $2\log_2 C_p\le2d+2H(14+7H)\le48H^2<p$. The bound on $2m$ follows. For an all-positive word, $B=h^2$ and $t=0$ give $W=O(H^4)$, proving the stronger order bound of Corollary~\ref{cor:run}.
+
+Every vertex is within distance five of $y^+$. For a branch label the path from $y^+$ to $u_{s,i}^-$ is $y^+,z_s^-,u_{s,i}^+,u_{s,i}^-$. A leaf label entering that branch contributes at most two further edges. Outgoing branch leaves attach at $u_{s,i}^+$, outgoing hub leaves attach at $z_s^+$, and the balanced labels are adjacent to $y^+$ through their negative endpoints. Their leaves are also within the stated radius. This proves the diameter bound.\end{proof}
+
+\section{Exact examples and reproducibility}
+For the word $(+,-,+,-)$ we may use $f=(0,2,6,9,13,16)$, which satisfies the hypotheses of Proposition~\ref{prop:profile}, and $p=2$. The resulting tree has 3,106 vertices and $\alpha=1553$. The four ratios $A_{r-1}A_{r+1}/A_r^2$, rounded to three decimals, are $3.968$, $0.889$, $2.310$, and $0.493$. With $f(j)=j^2$, $h=9$, and $p=3$, a tree on 67,430 vertices realizes eight consecutive terminal failures. The asserted signs were computed with integers. Their verification is independent of the sufficient uniform scale.
+
+\paragraph{Checks on the hypotheses.}
+With $h=3$, $f=(0,5,5,5)$ and $B=5$, the core score at budget three is $85$. The baseline is $60$, and fully using the stars of sizes one and two gains $25$. Formula~\eqref{eq:profile} instead predicts $80$ if superadditivity is dropped. The star formula shows that two threshold rewards are the most that three holes can collect here. With $h=2$, $f=(0,1,4)$ and one balanced label of weight $1$, allocating one hole to the first star attains score $30$, whereas giving priority to the balanced label yields $26$. This example uses a weight below the bound needed in Proposition~\ref{prop:prefix}. The same two-star core without the balanced label has first ratio about $0.521$ at $p=1$ and $2.819$ at $p=2$.
+
+\paragraph{Computations.}
+Two implementations compute the terminal coefficients, one by a rooted-tree recursion on the undirected edge list and one by grouping equivalent oriented leaf labels. Direct subset enumeration checks small graphs. A separate integer dynamic program over the three states of each core vertex maximizes the score at each exact budget. It checks every word through length 12 and selected longer words through length 256. All three archived output files were reproduced exactly. The proof of Theorem~\ref{thm:main} is independent of these experiments.
+
+\paragraph{Formal verification.}
+The Lean 4 supplement derives the coefficient bounds from actual independent vertex subsets of the split graph. The main declaration verifies the arbitrary word, the bounded-order witness, the graph properties, and the real limits on a single family. The all-positive order estimate is checked separately. The supplement records the toolchain, statement mapping, and axiom dependencies.
+
+\paragraph{AI-use disclosure.} This research project was initiated by hnap. OpenAI GPT-6.2 Astra was used for autonomous problem selection, mathematical exploration, proof construction, and initial Lean formalization. GPT-6.2 Sol was used for subsequent formalization, computational reproduction, literature review, and manuscript preparation. The manuscript is an AI-generated research draft under hnap's coordination; independent human mathematical review and verification of priority remain pending.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
