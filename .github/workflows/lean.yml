@@ -1,0 +1,26 @@
+name: Lean verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sha256sum --check --strict SHA256SUMS
+      - uses: leanprover/lean-action@v1
+        with:
+          use-mathlib-cache: "true"
+      - name: Print theorem signatures and check axiom dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env lean -DwarningAsError=true Audit.lean | tee "$RUNNER_TEMP/lean-audit.txt"
+          grep -F "'TerminalCurvature.Quantitative.bounded_family_real_limits' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/lean-audit.txt"
+          grep -F "'ExplicitTree.mixed_witness' does not depend on any axioms" "$RUNNER_TEMP/lean-audit.txt"
