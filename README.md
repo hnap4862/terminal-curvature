@@ -46,7 +46,7 @@ lake env lean Audit.lean
 To reproduce the recorded clean check against matching prebuilt dependency oleans, use:
 
 ```sh
-./replay-lean.sh /path/to/lean-4.19.0/bin/lean /path/to/mathlib4-v4.19.0
+bash replay-lean.sh /path/to/lean-4.19.0/bin/lean /path/to/mathlib4-v4.19.0
 ```
 
 The replay builds package modules in a new directory and turns Lean warnings into errors. The source declaration scan and kernel-level axiom output serve complementary purposes.
